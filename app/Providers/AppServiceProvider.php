@@ -16,8 +16,9 @@ class AppServiceProvider extends ServiceProvider
         //require app_path('Attendize/constants.php');
         if(env('FORCE_HTTPS') == true)
         {
-            \URL::forceScheme('https');
+            $this->app['request']->server->set('HTTPS', true);
         }
+
     }
 
     /**
