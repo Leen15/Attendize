@@ -14,6 +14,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //require app_path('Attendize/constants.php');
+        if(env('FORCE_HTTPS') == true)
+        {
+            \URL::forceScheme('https');
+        }
     }
 
     /**
